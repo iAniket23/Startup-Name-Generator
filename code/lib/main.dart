@@ -5,7 +5,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();  // DELETE
+    final wordPair = WordPair.random();
 
     return MaterialApp(
       title: 'Welcome to Flutter',
@@ -14,8 +14,7 @@ class MyApp extends StatelessWidget {
           title: Text('Welcome to Flutter'),
         ),
         body: Center(
-          //child: Text(wordPair.asPascalCase), // REPLACE with...
-          child: RandomWords(),                 // ...this line
+          child: RandomWords(),
         ),
       ),
     );
@@ -29,20 +28,18 @@ class RandomWords extends StatefulWidget {
 }
 
 class _RandomWordsState extends State<RandomWords> {
-  final List<WordPair> _suggestions = <WordPair>[];            // NEW
+  final List<WordPair> _suggestions = <WordPair>[];
   final TextStyle _biggerFont = const TextStyle(fontSize: 18);
 
   @override
   Widget build(BuildContext context) {
-    //final wordPair = WordPair.random(); // Delete these...
-    //return Text(wordPair.asPascalCase); // ... two lines.
 
-    return Scaffold (                     // Add from here...
+    return Scaffold (
       appBar: AppBar(
         title: Text('Startup Name Generator'),
       ),
       body: _buildSuggestions(),
-    );                                      // ... to here.
+    );
   }
 
   Widget _buildRow(WordPair pair) {
@@ -57,12 +54,6 @@ class _RandomWordsState extends State<RandomWords> {
   Widget _buildSuggestions() {
     return ListView.builder(
         padding: const EdgeInsets.all(16),
-        // The itemBuilder callback is called once per suggested
-        // word pairing, and places each suggestion into a ListTile
-        // row. For even rows, the function adds a ListTile row for
-        // the word pairing. For odd rows, the function adds a
-        // Divider widget to visually separate the entries. Note that
-        // the divider may be difficult to see on smaller devices.
         itemBuilder: (BuildContext _context, int i) {
           // Add a one-pixel-high divider widget before each row
           // in the ListView.
