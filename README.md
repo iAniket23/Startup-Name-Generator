@@ -1,1 +1,2 @@
-# Startup Name Generator
+# Startup Name Generator      
+name generator 
